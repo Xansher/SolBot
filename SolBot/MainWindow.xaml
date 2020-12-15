@@ -1,0 +1,120 @@
+﻿<Window x:Class="SolBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolBot"
+        mc:Ignorable="d"
+        Title="SolBot" Height="500" Width="900" WindowStartupLocation="Manual" Background="#FF1A1A1D" BorderBrush="Black" ShowInTaskbar="True" Padding="0" Margin="0" OpacityMask="#FF212020">
+
+    <DockPanel Background="#FF1A1A1D" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True" Margin="0">
+        <Menu Background="#FF1A1A1D" BorderBrush="#FF212121" ClipToBounds="True" RenderTransformOrigin="0,0" Margin="0" DockPanel.Dock="Top" VerticalAlignment="Top">
+            <MenuItem Header="Settings" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White">
+                <MenuItem Header="MenuItem" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Margin="0" Foreground="White" Background="#FF060000" HorizontalAlignment="Left" Width="157.607"/>
+            </MenuItem>
+            <MenuItem Header="Opcje" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White" StaysOpenOnClick="True">
+                <MenuItem Header="LightHack" HorizontalAlignment="Left" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Width="88.436" Margin="0,0,-0.829,0" Foreground="White" Background="#FF060000" IsCheckable="True" Checked="EnableLightHack"/>
+            </MenuItem>
+        </Menu>
+        <TabControl DockPanel.Dock="Top" Margin="0" Background="#FF101011" BorderBrush="#FF101011" HorizontalContentAlignment="Stretch" >
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                                        <GradientStop Color="#FFF11818" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="Heal" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" IsSelected="True" Margin="0" Style="{DynamicResource SimpleTabItem}" >
+                <Grid Background="#FF1C1C1C" Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="402*"/>
+                        <ColumnDefinition Width="47*"/>
+                        <ColumnDefinition Width="225*"/>
+                        <ColumnDefinition Width="194*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Name="HealEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26.08,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="13.96" Width="62.27" Grid.Column="1" Checked="HealChecked" Unchecked="HealChecked" />
+                    <TextBox HorizontalAlignment="Left" Height="20.96" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="317,78.08,0,0"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="18,78.08,0,0" VerticalAlignment="Top" Width="90" Height="20.96">
+                        <ComboBoxItem Content="light healing" HorizontalAlignment="Left" Width="92.17"/>
+                        <ComboBoxItem Content="regeneration" HorizontalAlignment="Left" Width="92.17"/>
+                        <ComboBoxItem Content="exura vita" HorizontalAlignment="Left" Width="92.17"/>
+                        <ComboBoxItem Content="IH Rune" HorizontalAlignment="Left" Width="92.17"/>
+                        <ComboBoxItem Content="UH Rune" HorizontalAlignment="Left" Width="92.17"/>
+                    </ComboBox>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="18,57.12,0,0" TextWrapping="Wrap" Text="Spell/item" VerticalAlignment="Top" Width="65.78"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="154,78.08,0,0" VerticalAlignment="Top" Width="120" Height="20.96">
+                        <ComboBoxItem Content="HP lower than" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Content="%HP lower than" HorizontalAlignment="Left" Width="118"/>
+                    </ComboBox>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="154,57.12,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" Width="65.78"/>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="317,57.12,0,0" TextWrapping="Wrap" Text="Value" VerticalAlignment="Top" Width="65.78"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Alarms" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="549*"/>
+                        <ColumnDefinition Width="337*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF1C1C1C"/>
+                    </Grid.Background>
+                    <CheckBox Name="AlarmsEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="AlarmsChecked" Unchecked="AlarmsChecked" />
+                    <TextBox Name="HelthBelow" HorizontalAlignment="Left" Height="23" Margin="250,70.08,0,0" TextWrapping="Wrap" Text="170" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="RuneMaker" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="549*"/>
+                        <ColumnDefinition Width="337*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF1C1C1C"/>
+                    </Grid.Background>
+                    <CheckBox Name="RuneMakerEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="RuneMakerChecked" Unchecked="AlarmsChecked" />
+                    <TextBox Name="Spell" HorizontalAlignment="Left" Height="23" Margin="71,70.08,0,0" TextWrapping="Wrap" Text="adura gran" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="ManaLow" HorizontalAlignment="Left" Height="23" Margin="250,70.08,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>
+                    <TextBox Name="ManaHigh" HorizontalAlignment="Left" Height="23" Margin="357,70.08,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Targeting" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="549*"/>
+                        <ColumnDefinition Width="337*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF1C1C1C"/>
+                    </Grid.Background>
+                    <CheckBox Name="TargetingEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="RuneMakerChecked" Unchecked="AlarmsChecked" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Console" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
+                <Grid>
+
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF1C1C1C"/>
+                    </Grid.Background>
+                    <RichTextBox HorizontalAlignment="Left" Height="395.08" Margin="10,10,0,0" VerticalAlignment="Top" Width="866" MinWidth="4">
+                        <FlowDocument Name="console" LineHeight="1">
+                            <Paragraph>
+                                <Run Text="Console Start"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

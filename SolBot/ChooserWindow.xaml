@@ -1,0 +1,22 @@
+﻿<Window x:Class="SolBot.ChooserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolBot"
+        mc:Ignorable="d"
+        Title="ChooserWindow" Height="333.186" Width="332.743">
+    <Grid Background="#FF1A1A1D">
+        <ListView Name="ClientsList" Height="200" Margin="25,25,25,0" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="50" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Pid" Width="50" DisplayMemberBinding="{Binding Pid}" />
+                    <GridViewColumn Header="Client" Width="164" DisplayMemberBinding="{Binding Client}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Open bot" Margin="120,246.906,120,35.32" Click="OpenWindow"/>
+
+    </Grid>
+</Window>
