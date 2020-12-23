@@ -12,16 +12,13 @@ namespace SolBot.Objects
 
         {
 
-            public IntPtr StrPointer;
-            public int Length;
             public string Str;
 
-           // public int MaxLength;
+            public int MaxLength;
 
             public IntPtr BasePointer;
 
-            
-
+            public IntPtr StrPointer;
 
 
             public StdString(string str)
@@ -30,7 +27,7 @@ namespace SolBot.Objects
 
                 Str = str;
 
-                Length = str.Length;
+                MaxLength = str.Length < 16 ? 0xF : 0xFFFF;
 
                 BasePointer = IntPtr.Zero;
 
@@ -49,23 +46,18 @@ namespace SolBot.Objects
                 IntPtr bytesWritten;
 
                 //Alocate the base of the string which contains either a buffer or a pointer to the string aswell as 4 bytes length and 4 bytes maxLength
-                
+
                 BasePointer = WinAPI.VirtualAllocEx(handle, IntPtr.Zero, 0x18, WinAPI.AllocationType.Commit, WinAPI.MemoryProtection.ReadWrite);
 
-               //StrPointer = WinAPI.VirtualAllocEx(handle, IntPtr.Zero, Str.Length, WinAPI.AllocationType.Commit, WinAPI.MemoryProtection.ReadWrite);
-
-                
-               
 
 
                 if (Str.Length < 16)
 
                 {
-                    int ptr = (int)BasePointer + 0x8;
-                    WinAPI.WriteProcessMemory(handle, BasePointer, BitConverter.GetBytes(ptr), Str.Length, out bytesWritten);
+
                     //Here we only need to write as "buffer" since the string fits in the base structure
-                    WinAPI.WriteProcessMemory(handle, BasePointer + 0x4, BitConverter.GetBytes(Str.Length), 4, out bytesWritten);
-                    WinAPI.WriteProcessMemory(handle, BasePointer+0x8, Encoding.ASCII.GetBytes(Str), Str.Length, out bytesWritten);
+
+                    WinAPI.WriteProcessMemory(handle, BasePointer, Encoding.ASCII.GetBytes(Str), Str.Length, out bytesWritten);
 
                 }
 
@@ -89,9 +81,9 @@ namespace SolBot.Objects
 
                 //Write length and maxlength
 
-               
+                WinAPI.WriteProcessMemory(handle, BasePointer + 0x10, BitConverter.GetBytes(Str.Length), 4, out bytesWritten);
 
-                //WinAPI.WriteProcessMemory(handle, BasePointer + 0x14, BitConverter.GetBytes(MaxLength), 4, out bytesWritten);
+                WinAPI.WriteProcessMemory(handle, BasePointer + 0x14, BitConverter.GetBytes(MaxLength), 4, out bytesWritten);
 
             }
 
@@ -344,9 +336,9 @@ namespace SolBot.Objects
             {
                 int baseAddress = this.Client.TibiaProcess.MainModule.BaseAddress.ToInt32();
 
-                int functionAddress = 0x11E680 + baseAddress;
+                int functionAddress = 0x289140 + baseAddress;
 
-                int objectAddress = 0x687E8C + baseAddress;
+                int objectAddress = 0x48E844 + baseAddress;
                 
 
 

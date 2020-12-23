@@ -18,20 +18,22 @@ namespace SolBot.Modules
         public int ManaLow;
         public int ManaHigh;
         public Objects.Client.StdString spell;
-        
+        Thread t;
 
         public void Start()
         {
             if (this.IsRunning) return;
             this.IsRunning = true;
-            Thread t = new Thread(new ThreadStart(this.RuneMakerLogic));
-            t.Start();
+            this.t = new Thread(new ThreadStart(this.RuneMakerLogic));
+            this.t.IsBackground = true;
+            this.t.Start();
         }
 
         public void Stop()
         {
             if (!this.IsRunning) return;
             this.IsRunning = false;
+            this.t.Abort();
         }
 
         private void RuneMakerLogic()

@@ -218,6 +218,8 @@ namespace SolBot
             console.Blocks.Add(new Paragraph(new Run("LightHack Enabled")));
             double mana = this.Client.Player.Mana;
             console.Blocks.Add(new Paragraph(new Run(mana.ToString())));
+            this.Client.Functions.SendTalk(new Objects.Client.StdString("adori flam"), new Objects.Client.StdString(""), 1, 0);
+
         }
 
         private void RuneMakerChecked(object sender, RoutedEventArgs e)
@@ -240,9 +242,73 @@ namespace SolBot
                 }
 
             }
+
+            if (HealEnabled.IsChecked.Value != this.Client.Modules.Healer.IsRunning)
+            {
+
+                if (HealEnabled.IsChecked.Value)
+                {
+                    this.Client.Addresses.SetAddresses(this.Client);
+                    console.Blocks.Add(new Paragraph(new Run("Healer Enabled")));
+                    this.Client.Modules.Healer.Start();
+                }
+                else
+                {
+                    console.Blocks.Add(new Paragraph(new Run("Healer Disabled")));
+                    this.Client.Modules.Healer.Stop();
+                }
+
+            }
+
+
         }
 
- 
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            
+            switch (SpellComboBox.SelectedItem)
+            {
+                case "SD":
+                    {
+                        this.Client.Modules.RuneMaker.spell = new Objects.Client.StdString("adori vita vis");
+                        console.Blocks.Add(new Paragraph(new Run("WYbrano")));
+                        break;
+                    }
+                case "HMM":
+                    {
+                        this.Client.Modules.RuneMaker.spell = new Objects.Client.StdString("adori gran");
+                        break;
+                    }
+                case "UH":
+                    {
+                        this.Client.Modules.RuneMaker.spell = new Objects.Client.StdString("adura vita");
+                        break;
+                    }
+                case "GFB":
+                    {
+                        this.Client.Modules.RuneMaker.spell = new Objects.Client.StdString("adori gran flam");
+                        break;
+                    }
+                case "FB":
+                    {
+                        this.Client.Modules.RuneMaker.spell = new Objects.Client.StdString("adori flam");
+                        break;
+                    }
+                case "MW":
+                    {
+                        this.Client.Modules.RuneMaker.spell = new Objects.Client.StdString("adori vita vis");
+                        break;
+                    }
+                default:
+                    {
+                        console.Blocks.Add(new Paragraph(new Run("Pusty")));
+                        break;
+                    }
+
+            }
+            
+        }
+
     }
 
     

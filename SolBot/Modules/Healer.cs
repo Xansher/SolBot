@@ -45,20 +45,22 @@ namespace SolBot.Modules
         /// </summary>
         //private List<Criteria> Criterias { get; set; }
         private Random Rand { get; set; }
-
+        Thread t;
 
         public void Start()
         {
             if (this.IsRunning) return;
             this.IsRunning = true;
-            Thread t = new Thread(new ThreadStart(this.HealerLogic));
-            t.Start();
+            this.t = new Thread(new ThreadStart(this.HealerLogic));
+            this.t.IsBackground = true;
+            this.t.Start();
         }
 
         public void Stop()
         {
             if (!this.IsRunning) return;
             this.IsRunning = false;
+            this.t.Abort();
         }
 
         private void HealerLogic()
@@ -67,8 +69,8 @@ namespace SolBot.Modules
             {
                 double mana = this.Client.Player.Mana;
                 double health = this.Client.Player.Health;
-                if(mana>=25&& health<22000)
-                    this.Client.Functions.SendTalk(new Objects.Client.StdString("regeneration"), new Objects.Client.StdString(""), 1, 0);
+                if(mana>=40&& health<300)
+                    this.Client.Functions.SendTalk(new Objects.Client.StdString("exura gran"), new Objects.Client.StdString(""), 1, 0);
                 Console.Out.WriteLine(mana);
                 Thread.Sleep(700);
             }

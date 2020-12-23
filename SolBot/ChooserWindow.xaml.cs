@@ -24,7 +24,7 @@ namespace SolBot
         public ChooserWindow()
         {
             InitializeComponent();
-            Process[] p = Process.GetProcessesByName("LoS");
+            Process[] p = Process.GetProcessesByName("RealeraOGL");
             this.clients = p;
             List<TibiaClient> items = new List<TibiaClient>();
             for (int i = 0; i < p.Length; i++)

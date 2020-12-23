@@ -29,16 +29,16 @@ namespace SolBot.Objects
             int baseAddress = c.TibiaProcess.MainModule.BaseAddress.ToInt32();
 
             this.Player = new PlayerAddresses();
-            int add = baseAddress + 0x00687E80;
+            int add = baseAddress + 0x0048E838;
             this.Player.BaseAddress = add;
             this.Player.XPosOffset = 0xC;
             this.Player.YPosOffset = 0x10;
             this.Player.ZPosOffset = 0x14;
             this.Player.NameOffset = 0x20;
-            this.Player.Mana = baseAddress + 0x00687E80;
-            this.Player.ManaOff= 0x478;
-            this.Player.Health = baseAddress + 0x00687E80;
-            this.Player.HealthOff= 0x440;
+            this.Player.Mana = baseAddress + 0x0048E838;
+            this.Player.ManaOff= 0x3D0;
+            this.Player.Health = baseAddress + 0x0048E838;
+            this.Player.HealthOff= 0x398; ;
             this.Player.LightObject= 0x278C73 + baseAddress;
             this.Player.LightFloor = 0x2826C9 + baseAddress;
             this.Player.Light = 0x48D518 + baseAddress + 0xA4;

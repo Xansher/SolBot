@@ -19,12 +19,14 @@ namespace SolBot.Modules
         public Objects.Client Client { get; private set; }
         public bool IsRunning { get; private set; }
         public int HealthBelow;
+        Thread t;
         public void Start()
         {
             if (this.IsRunning) return;
             this.IsRunning = true;
-            Thread t = new Thread(new ThreadStart(this.AlarmLogic));
-            t.Start();
+            this.t = new Thread(new ThreadStart(this.AlarmLogic));
+            this.t.IsBackground = true;
+            this.t.Start();
         }
 
         public void Stop()
