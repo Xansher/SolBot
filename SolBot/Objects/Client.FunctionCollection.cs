@@ -330,8 +330,7 @@ namespace SolBot.Objects
                 CallCodeCave(this.Client.TibiaHandle, codeCave);
             }
 
-            //268448289
-
+           
                 public void SendTalk(StdString message, StdString receiver, int mode, int channel)
             {
                 int baseAddress = this.Client.TibiaProcess.MainModule.BaseAddress.ToInt32();

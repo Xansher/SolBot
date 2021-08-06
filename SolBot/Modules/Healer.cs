@@ -4,11 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace SolBot.Modules
 {
     public class Healer
     {
+
+        private static IntPtr CreateLParam(int x, int y)
+        {
+            return (IntPtr)(x | (y << 16));
+        }
+
+        [DllImport("user32.dll")]
+        static extern IntPtr PostMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
 
         public Healer(Objects.Client c, ushort checkInterval, ushort sleepMin, ushort sleepMax)
         {
@@ -40,12 +49,18 @@ namespace SolBot.Modules
         /// Gets or sets the maximum amount of time in milliseconds to sleep once an action is performed.
         /// </summary>
         public ushort SleepMax { get; set; }
+
+        public int Mana { get; set; }
+        public int Health { get; set; }
+
         /// <summary>
         /// Gets or sets the list of criterias.
         /// </summary>
         //private List<Criteria> Criterias { get; set; }
         private Random Rand { get; set; }
         Thread t;
+        Thread m;
+        
 
         public void Start()
         {
@@ -54,6 +69,10 @@ namespace SolBot.Modules
             this.t = new Thread(new ThreadStart(this.HealerLogic));
             this.t.IsBackground = true;
             this.t.Start();
+            this.m = new Thread(new ThreadStart(this.HealerLogicMana));
+            this.m.IsBackground = true;
+            this.m.Start();
+            
         }
 
         public void Stop()
@@ -61,6 +80,7 @@ namespace SolBot.Modules
             if (!this.IsRunning) return;
             this.IsRunning = false;
             this.t.Abort();
+            this.m.Abort();
         }
 
         private void HealerLogic()
@@ -69,10 +89,89 @@ namespace SolBot.Modules
             {
                 double mana = this.Client.Player.Mana;
                 double health = this.Client.Player.Health;
-                if(mana>=40&& health<300)
-                    this.Client.Functions.SendTalk(new Objects.Client.StdString("exura gran"), new Objects.Client.StdString(""), 1, 0);
-                Console.Out.WriteLine(mana);
-                Thread.Sleep(700);
+                
+
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Kasteria"))
+                {
+                    if (health < Health)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x7B, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x7B, 0);
+                    }
+                }
+                else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Imperianic"))
+                {
+                    if (health < Health)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x7B, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x7B, 0);
+                    }
+                }
+                else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Tibijka"))
+                {
+                    if (health < Health)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F12, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F12, 0);
+                    }
+                }
+                else
+                {
+                    if (mana >= 40 && health < 450 && health > 300)
+                    {
+                        this.Client.Functions.SendTalk(new Objects.Client.StdString("exura gran"), new Objects.Client.StdString(""), 1, 0);
+                        Thread.Sleep(100);
+                    }
+                    else if (mana >= 160 && health < 300)
+                    {
+                        this.Client.Functions.SendTalk(new Objects.Client.StdString("exura vita"), new Objects.Client.StdString(""), 1, 0);
+                        Thread.Sleep(100);
+                    }
+                }
+            }
+        }
+        private void HealerLogicMana()
+        {
+            while (this.IsRunning)
+            {
+                double mana = this.Client.Player.Mana;
+                double health = this.Client.Player.Health;
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Kasteria"))
+                {
+                    if (mana < Mana)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x79, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x79, 0);
+                        Thread.Sleep(700);
+                    }
+
+                }
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Tibijka"))
+                {
+                    if (mana < Mana)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x79, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x79, 0);
+                        Thread.Sleep(700);
+                    }
+
+                }
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Imperianic"))
+                {
+                    if (mana < Mana)
+                    {
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1550, 250));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1550, 250));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1550, 250));
+
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(860, 450));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x201, (IntPtr)0x1, CreateLParam(860, 450));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x202, (IntPtr)0x0, CreateLParam(860, 450));
+                        Thread.Sleep(250);
+                    }
+
+                }
+                
             }
         }
 

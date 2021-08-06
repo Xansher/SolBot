@@ -30,6 +30,17 @@ namespace SolBot.Objects
             get { return this.Client.Memory.ReadDouble(this.Client.Memory.ReadInt32(this.Client.Addresses.Player.Health) + this.Client.Addresses.Player.HealthOff); }
             set { }
         }
+
+        public double Soul
+        {
+            get { return this.Client.Memory.ReadDouble(this.Client.Memory.ReadInt32(this.Client.Addresses.Player.BaseAddress) + this.Client.Addresses.Player.SoulOff); }
+            set { }
+        }
+        public int Speed
+        {
+            get { return this.Client.Memory.ReadInt32(this.Client.Memory.ReadInt32(this.Client.Addresses.Player.BaseAddress) + this.Client.Addresses.Player.SpeedOff); }
+            set { }
+        }
         public uint XPos
         {
             get { return this.Client.Memory.ReadUInt32(this.Client.Memory.ReadInt32(this.Client.Addresses.Player.BaseAddress) + this.Client.Addresses.Player.XPosOffset); }

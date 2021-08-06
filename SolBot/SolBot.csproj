@@ -61,6 +61,8 @@
     </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="Modules\Alarms.cs" />
+    <Compile Include="Modules\AutoFisher.cs" />
+    <Compile Include="Modules\AutoSpeed.cs" />
     <Compile Include="Modules\Healer.cs" />
     <Compile Include="Modules\RuneMaker.cs" />
     <Compile Include="Modules\Targeting.cs" />
@@ -71,9 +73,11 @@
     <Compile Include="Objects\Creature.cs" />
     <Compile Include="Objects\Memory.cs" />
     <Compile Include="Objects\Player.cs" />
+    <Compile Include="Objects\Rune.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="WinApi.cs" />
     <Page Include="ChooserWindow.xaml">
       <SubType>Designer</SubType>

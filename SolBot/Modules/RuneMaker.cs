@@ -17,6 +17,7 @@ namespace SolBot.Modules
         public bool IsRunning { get; private set; }
         public int ManaLow;
         public int ManaHigh;
+        public int Soul;
         public Objects.Client.StdString spell;
         Thread t;
 
@@ -43,13 +44,31 @@ namespace SolBot.Modules
             while (this.IsRunning)
             {
                 double mana = this.Client.Player.Mana;
-                
+                double soul= this.Client.Player.Soul;
 
-                if (mana > randomMana)
+                if (mana > randomMana )
                 {
-                    this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
-                    Thread.Sleep(400);
+                    if (this.Client.TibiaProcess.MainWindowTitle.Contains("Kasteria"))
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x70, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x70, 0);
+                    }
+                    else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Imperianic"))
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x70, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x70, 0);
+                    }
+                    else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Tibijka"))
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F2, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
+                    }
+                    else { 
+                        this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
+                    }
+                    Thread.Sleep(700);
                     randomMana = rnd.Next(this.ManaLow, this.ManaHigh);
+
                 }
                    
 

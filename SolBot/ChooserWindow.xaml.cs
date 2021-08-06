@@ -24,14 +24,20 @@ namespace SolBot
         public ChooserWindow()
         {
             InitializeComponent();
+            Process[] x = Process.GetProcessesByName("Imperianic OpenGL");
             Process[] p = Process.GetProcessesByName("RealeraOGL");
-            this.clients = p;
+            Process[] l = Process.GetProcessesByName("otclient_gl");
+            this.clients = l;
             List<TibiaClient> items = new List<TibiaClient>();
-            for (int i = 0; i < p.Length; i++)
+           /* for (int i = 0; i < p.Length; i++)
             {
                 items.Add(new TibiaClient() { Id = i, Pid = p[i].Id, Client = p[i].MainWindowTitle });
+            }*/
+            for (int i = 0; i < l.Length; i++)
+            {
+                items.Add(new TibiaClient() { Id = i, Pid = l[i].Id, Client = l[i].MainWindowTitle });
             }
-            
+
 
             ClientsList.ItemsSource = items;
         }
@@ -42,6 +48,7 @@ namespace SolBot
          
             MainWindow main = new MainWindow(clients[ClientsList.SelectedIndex]);
             this.Visibility = Visibility.Hidden;
+            this.Close();
             main.Show();
         }
     }

@@ -16,12 +16,17 @@ namespace SolBot.Objects
                 this.Healer = new Modules.Healer(c, 500, 400, 700);
                 this.Alarms = new Modules.Alarms(c);
                 this.RuneMaker = new Modules.RuneMaker(c);
+                this.AutoSpeed = new Modules.AutoSpeed(c);
+                this.AutoFisher = new Modules.AutoFisher(c);
+
             }
 
             public Objects.Client Client { get; private set; }
             public Modules.Healer Healer { get; private set; }
             public Modules.Alarms Alarms { get; private set; }
             public Modules.RuneMaker RuneMaker { get; private set; }
+            public Modules.AutoSpeed AutoSpeed { get; private set; }
+            public Modules.AutoFisher AutoFisher { get; private set; }
         }
 
     }
