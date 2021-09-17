@@ -89,9 +89,9 @@ namespace SolBot.Modules
             {
                 double mana = this.Client.Player.Mana;
                 double health = this.Client.Player.Health;
-                
 
-                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Kasteria"))
+
+                /*if (this.Client.TibiaProcess.MainWindowTitle.Contains("Kasteria"))
                 {
                     if (health < Health)
                     {
@@ -114,8 +114,18 @@ namespace SolBot.Modules
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F12, 0);
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F12, 0);
                     }
+                }*/
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+                {
+                    if (health < Health)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F12, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F12, 0);
+                        Thread.Sleep(250);
+                    }
+
                 }
-                else
+                /*else
                 {
                     if (mana >= 40 && health < 450 && health > 300)
                     {
@@ -127,7 +137,7 @@ namespace SolBot.Modules
                         this.Client.Functions.SendTalk(new Objects.Client.StdString("exura vita"), new Objects.Client.StdString(""), 1, 0);
                         Thread.Sleep(100);
                     }
-                }
+                }*/
             }
         }
         private void HealerLogicMana()
@@ -154,6 +164,26 @@ namespace SolBot.Modules
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x79, 0);
                         Thread.Sleep(700);
                     }
+
+                }
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+                {
+                    if (mana < Mana)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F11, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F11, 0);
+                        Thread.Sleep(300);
+                    }
+
+                }
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Tibia"))
+                {
+                    //if (mana < Mana)
+                    //{
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, 0x79, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, 0x79, 0);
+                        Thread.Sleep(1670);
+                   // }
 
                 }
                 if (this.Client.TibiaProcess.MainWindowTitle.Contains("Imperianic"))

@@ -133,7 +133,7 @@
                     <Grid.Background>
                         <SolidColorBrush Color="#FF1C1C1C"/>
                     </Grid.Background>
-                    <CheckBox Name="TargetingEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="RuneMakerChecked" Unchecked="AlarmsChecked" />
+                    <CheckBox Name="TargetingEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="TargetingChecked" Unchecked="TargetingChecked" />
                 </Grid>
             </TabItem>
             <TabItem Header="Console" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">

@@ -22,25 +22,39 @@ namespace SolBot.Modules
         /// Gets whether the healer is running or not.
         /// </summary>
         public bool IsRunning { get; private set; }
-        
+        Thread t;
+
         public void Start()
         {
-            if (this.IsRunning)
-                return;
+            if (this.IsRunning) return;
             this.IsRunning = true;
-            Thread t = new Thread(new ThreadStart(TargetingLogic));
+            this.t = new Thread(new ThreadStart(this.TargetingLogic));
+            this.t.IsBackground = true;
+            this.t.Start();
         }
 
         public void Stop()
         {
-            if (!this.IsRunning)
-                return;
+            if (!this.IsRunning) return;
             this.IsRunning = false;
-            
+            this.t.Abort();
         }
         void TargetingLogic()
         {
+            while (this.IsRunning)
+            {
+                /* WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F10, 0);
+                 WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F10, 0);
 
+                 Thread.Sleep(300);*/
+                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_RIGHT, 0);
+                Thread.Sleep(1000);
+                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_RIGHT, 0);
+                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_LEFT, 0);
+                Thread.Sleep(1000);
+                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_LEFT, 0);
+            }
+                
         }
 
     }

@@ -43,7 +43,7 @@ namespace SolBot.Modules
             int randomMana = rnd.Next(this.ManaLow, this.ManaHigh);
             while (this.IsRunning)
             {
-                double mana = this.Client.Player.Mana;
+                /*double mana = this.Client.Player.Mana;
                 double soul= this.Client.Player.Soul;
 
                 if (mana > randomMana )
@@ -63,14 +63,32 @@ namespace SolBot.Modules
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F2, 0);
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
                     }
+                   
                     else { 
                         this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
                     }
                     Thread.Sleep(700);
                     randomMana = rnd.Next(this.ManaLow, this.ManaHigh);
 
+                }*/
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+                {
+                    double mana = this.Client.Player.Mana;
+                    if (mana > randomMana)
+                    {
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F1, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F1, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F2, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
+                       
+                        Thread.Sleep(1500);
+                        randomMana = rnd.Next(this.ManaLow, this.ManaHigh);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F3, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F3, 0);
+                    }
+                    
                 }
-                   
+
 
             }
         }

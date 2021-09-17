@@ -67,6 +67,25 @@ namespace SolBot.Objects
                 this.Player.Light = 0x48D518 + baseAddress + 0xA4;
                 return true;
             }
+            else if (c.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+            {
+                int add = baseAddress + 0x00557178;
+                this.Player.BaseAddress = add;
+                this.Player.XPosOffset = 0xC;
+                this.Player.YPosOffset = 0x10;
+                this.Player.ZPosOffset = 0x14;
+                this.Player.NameOffset = 0x20;
+                this.Player.Mana = baseAddress + 0x00555178;
+                this.Player.ManaOff = 0x480;
+                this.Player.Health = baseAddress + 0x00555178;
+                this.Player.HealthOff = 0x448;
+                this.Player.SoulOff = 0x470;
+                this.Player.SpeedOff = 0xA8;
+                this.Player.LightObject = 0x278C73 + baseAddress;
+                this.Player.LightFloor = 0x2826C9 + baseAddress;
+                this.Player.Light = 0x48D518 + baseAddress + 0xA4;
+                return true;
+            }
             else if (c.TibiaProcess.MainWindowTitle.Contains("Imperianic"))
             {
                 int add = baseAddress + 0x0082F150;

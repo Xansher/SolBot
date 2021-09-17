@@ -302,6 +302,27 @@ namespace SolBot
 
         }
 
+        private void TargetingChecked(object sender, RoutedEventArgs e)
+        {
+            if (TargetingEnabled.IsChecked.Value != this.Client.Modules.Targeting.IsRunning)
+            {
+
+                if (TargetingEnabled.IsChecked.Value)
+                {
+                    console.Blocks.Add(new Paragraph(new Run("Targeting Enabled")));
+                    
+                    this.Client.Modules.Targeting.Start();
+                }
+                else
+                {
+                    console.Blocks.Add(new Paragraph(new Run("Targeting Disabled")));
+                    this.Client.Modules.Targeting.Stop();
+                }
+
+            }
+
+        }
+
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
         {
             

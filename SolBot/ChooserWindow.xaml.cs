@@ -27,15 +27,17 @@ namespace SolBot
             Process[] x = Process.GetProcessesByName("Imperianic OpenGL");
             Process[] p = Process.GetProcessesByName("RealeraOGL");
             Process[] l = Process.GetProcessesByName("otclient_gl");
-            this.clients = l;
+            Process[] d = Process.GetProcessesByName("Giveria");
+            Process[] t = Process.GetProcessesByName("DBKOx32");
+            this.clients = t;
             List<TibiaClient> items = new List<TibiaClient>();
            /* for (int i = 0; i < p.Length; i++)
             {
                 items.Add(new TibiaClient() { Id = i, Pid = p[i].Id, Client = p[i].MainWindowTitle });
             }*/
-            for (int i = 0; i < l.Length; i++)
+            for (int i = 0; i < t.Length; i++)
             {
-                items.Add(new TibiaClient() { Id = i, Pid = l[i].Id, Client = l[i].MainWindowTitle });
+                items.Add(new TibiaClient() { Id = i, Pid = t[i].Id, Client = t[i].MainWindowTitle });
             }
 
 

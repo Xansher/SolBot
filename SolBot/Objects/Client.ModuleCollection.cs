@@ -18,6 +18,7 @@ namespace SolBot.Objects
                 this.RuneMaker = new Modules.RuneMaker(c);
                 this.AutoSpeed = new Modules.AutoSpeed(c);
                 this.AutoFisher = new Modules.AutoFisher(c);
+                this.Targeting = new Modules.Targeting(c);
 
             }
 
@@ -27,6 +28,8 @@ namespace SolBot.Objects
             public Modules.RuneMaker RuneMaker { get; private set; }
             public Modules.AutoSpeed AutoSpeed { get; private set; }
             public Modules.AutoFisher AutoFisher { get; private set; }
+            public Modules.Targeting Targeting { get; private set; }
+            
         }
 
     }
