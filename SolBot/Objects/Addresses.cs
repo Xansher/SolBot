@@ -107,17 +107,17 @@ namespace SolBot.Objects
             }
             else 
             {
-                int add = baseAddress + 0x0048E838;
+                int add = baseAddress + 0x00494A38;
                 this.Player.BaseAddress = add;
                 this.Player.XPosOffset = 0xC;
                 this.Player.YPosOffset = 0x10;
                 this.Player.ZPosOffset = 0x14;
                 this.Player.NameOffset = 0x20;
-                this.Player.Mana = baseAddress + 0x0048E838;
-                this.Player.ManaOff = 0x3D0;
-                this.Player.Health = baseAddress + 0x0048E838;
-                this.Player.HealthOff = 0x398;
-                this.Player.SoulOff = 0x3F8;
+                this.Player.Mana = baseAddress + 0x00494A38;
+                this.Player.ManaOff = 0x3E8;
+                this.Player.Health = baseAddress + 0x00494A38;
+                this.Player.HealthOff = 0x3B0;
+                this.Player.SoulOff = 0x410;
                 this.Player.SpeedOff = 0xA8;
                 this.Player.LightObject = 0x278C73 + baseAddress;
                 this.Player.LightFloor = 0x2826C9 + baseAddress;
