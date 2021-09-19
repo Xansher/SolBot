@@ -24,26 +24,47 @@ namespace SolBot
         public ChooserWindow()
         {
             InitializeComponent();
+            var processList = new List<Process[]>();
             Process[] x = Process.GetProcessesByName("Imperianic OpenGL");
             Process[] p = Process.GetProcessesByName("RealeraOGL");
             Process[] l = Process.GetProcessesByName("otclient_gl");
             Process[] d = Process.GetProcessesByName("Giveria");
             Process[] t = Process.GetProcessesByName("DBKOx32");
-            this.clients = t;
+            processList.Add(x);
+            processList.Add(p);
+            processList.Add(l);
+            processList.Add(d);
+            processList.Add(t);
+            //this.clients = t;
             List<TibiaClient> items = new List<TibiaClient>();
-           /* for (int i = 0; i < p.Length; i++)
-            {
-                items.Add(new TibiaClient() { Id = i, Pid = p[i].Id, Client = p[i].MainWindowTitle });
-            }*/
+
+
+            /* for (int i = 0; i < p.Length; i++)
+             {
+                 items.Add(new TibiaClient() { Id = i, Pid = p[i].Id, Client = p[i].MainWindowTitle });
+             }*/
+            var id = 0;
+            processList.ForEach(process =>
+           {
+               
+               for (int i = 0; i < process.Length; i++)
+               {
+                   items.Add(new TibiaClient() { Id = id, Pid = process[i].Id, Client = process[i].MainWindowTitle });
+                   clients.Add(process[i]);
+                   id++;
+               }
+           });
+            /*
             for (int i = 0; i < t.Length; i++)
             {
                 items.Add(new TibiaClient() { Id = i, Pid = t[i].Id, Client = t[i].MainWindowTitle });
-            }
+            }*/
 
 
             ClientsList.ItemsSource = items;
+           
         }
-        Process[] clients;
+        List<Process> clients = new List<Process>();
         
         private void OpenWindow(object sender, RoutedEventArgs e)
         {
