@@ -4,11 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace SolBot.Modules
 {
     public class RuneMaker
     {
+        private static IntPtr CreateLParam(int x, int y)
+        {
+            return (IntPtr)(x | (y << 16));
+        }
+
+        [DllImport("user32.dll")]
+        static extern IntPtr PostMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+
         public RuneMaker(Objects.Client c)
         {
             this.Client = c;
@@ -43,9 +52,9 @@ namespace SolBot.Modules
             int randomMana = rnd.Next(this.ManaLow, this.ManaHigh);
             while (this.IsRunning)
             {
-                /*double mana = this.Client.Player.Mana;
+                double mana = this.Client.Player.Mana;
                 double soul= this.Client.Player.Soul;
-
+                
                 if (mana > randomMana )
                 {
                     if (this.Client.TibiaProcess.MainWindowTitle.Contains("Kasteria"))
@@ -64,14 +73,24 @@ namespace SolBot.Modules
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
                     }
                    
-                    else { 
-                        this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
+                    else {
+                        //this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F3, 0);
+                        WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F3, 0);
+                        Thread.Sleep(400);
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(702, 300));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(702, 300));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(702, 300));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(702, 300));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(702, 300));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(702, 300));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(702, 300));
                     }
                     Thread.Sleep(700);
                     randomMana = rnd.Next(this.ManaLow, this.ManaHigh);
 
-                }*/
-                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+                }
+                /*if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
                 {
                     double mana = this.Client.Player.Mana;
                     if (mana > randomMana)
@@ -87,7 +106,7 @@ namespace SolBot.Modules
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F3, 0);
                     }
                     
-                }
+                }*/
 
 
             }
