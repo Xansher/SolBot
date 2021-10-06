@@ -69,7 +69,7 @@ namespace SolBot.Objects
             }
             else if (c.TibiaProcess.MainWindowTitle.Contains("DBKO"))
             {
-                int add = baseAddress + 0x00557178;
+                int add = baseAddress + 0x00555178;
                 this.Player.BaseAddress = add;
                 this.Player.XPosOffset = 0xC;
                 this.Player.YPosOffset = 0x10;

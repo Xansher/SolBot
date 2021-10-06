@@ -86,6 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Base\ModuleBase.cs" />
     <Compile Include="ChooserWindow.xaml.cs">
       <DependentUpon>ChooserWindow.xaml</DependentUpon>
     </Compile>
@@ -93,9 +94,11 @@
     <Compile Include="Modules\Alarms.cs" />
     <Compile Include="Modules\AutoFisher.cs" />
     <Compile Include="Modules\AutoSpeed.cs" />
+    <Compile Include="Modules\FoodEater.cs" />
     <Compile Include="Modules\Healer.cs" />
     <Compile Include="Modules\RuneMaker.cs" />
     <Compile Include="Modules\Targeting.cs" />
+    <Compile Include="Modules\TrainPoints.cs" />
     <Compile Include="Objects\Addresses.cs" />
     <Compile Include="Objects\Client.FunctionCollection.cs" />
     <Compile Include="Objects\Client.ModuleCollection.cs" />

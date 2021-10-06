@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Speech.Synthesis;
-using System.Collections.ObjectModel;
+
 
 namespace SolBot
 {
@@ -302,6 +302,25 @@ namespace SolBot
 
         }
 
+        private void FoodEaterChecked(object sender, RoutedEventArgs e)
+        {
+            if (FoodEaterEnabled.IsChecked.Value != this.Client.Modules.FoodEater.IsRunning)
+            {
+
+                if (FoodEaterEnabled.IsChecked.Value)
+                {
+                    console.Blocks.Add(new Paragraph(new Run("FoodEater Enabled")));
+                    this.Client.Modules.FoodEater.Start();
+                }
+                else
+                {
+                    console.Blocks.Add(new Paragraph(new Run("FoodEater Disabled")));
+                    this.Client.Modules.FoodEater.Stop();
+                }
+
+            }
+        }
+
         private void TargetingChecked(object sender, RoutedEventArgs e)
         {
             if (TargetingEnabled.IsChecked.Value != this.Client.Modules.Targeting.IsRunning)
@@ -393,6 +412,26 @@ namespace SolBot
                 {
                     console.Blocks.Add(new Paragraph(new Run("RuneMaker Disabled")));
                     this.Client.Modules.AutoFisher.Stop();
+                }
+
+            }
+        }
+
+        private void TrainPointsChecked(object sender, RoutedEventArgs e)
+        {
+            if (TrainPointsEnabled.IsChecked.Value != this.Client.Modules.TrainPoints.IsRunning)
+            {
+
+                if (TrainPointsEnabled.IsChecked.Value)
+                {
+                    console.Blocks.Add(new Paragraph(new Run("TrainPoints Enabled")));
+
+                    this.Client.Modules.TrainPoints.Start();
+                }
+                else
+                {
+                    console.Blocks.Add(new Paragraph(new Run("TrainPoints Disabled")));
+                    this.Client.Modules.TrainPoints.Stop();
                 }
 
             }

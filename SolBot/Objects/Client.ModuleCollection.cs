@@ -19,7 +19,8 @@ namespace SolBot.Objects
                 this.AutoSpeed = new Modules.AutoSpeed(c);
                 this.AutoFisher = new Modules.AutoFisher(c);
                 this.Targeting = new Modules.Targeting(c);
-
+                this.FoodEater = new Modules.FoodEater(c);
+                this.TrainPoints = new Modules.TrainPoints(c);
             }
 
             public Objects.Client Client { get; private set; }
@@ -29,7 +30,9 @@ namespace SolBot.Objects
             public Modules.AutoSpeed AutoSpeed { get; private set; }
             public Modules.AutoFisher AutoFisher { get; private set; }
             public Modules.Targeting Targeting { get; private set; }
-            
+            public Modules.FoodEater FoodEater { get; private set; }
+            public Modules.TrainPoints TrainPoints { get; private set; }
+
         }
 
     }

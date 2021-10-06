@@ -14,7 +14,8 @@ namespace SolBot.ViewModels
             ObservableCollection<Objects.Rune> output = new ObservableCollection<Objects.Rune>();
             output.Add(new Objects.Rune("SD", "SD", "adori vita vis", 880,900,5));
             output.Add(new Objects.Rune("GFB", "GFB", "adori gran flam", 480, 485, 2));
-           // output.Add(new Objects.Rune("UH", "UH", "adura vita"));
+            output.Add(new Objects.Rune("UH", "UH", "adura vita", 400, 405, 2));
+            output.Add(new Objects.Rune("FB", "FB", "adura vita", 160, 165, 2));
             RuneList = output;
           
         }

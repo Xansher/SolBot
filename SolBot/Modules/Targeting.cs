@@ -43,16 +43,10 @@ namespace SolBot.Modules
         {
             while (this.IsRunning)
             {
-                /* WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F10, 0);
+                 WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F10, 0);
                  WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F10, 0);
 
-                 Thread.Sleep(300);*/
-                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_RIGHT, 0);
-                Thread.Sleep(1000);
-                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_RIGHT, 0);
-                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_LEFT, 0);
-                Thread.Sleep(1000);
-                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_LEFT, 0);
+                 Thread.Sleep(300);
             }
                 
         }

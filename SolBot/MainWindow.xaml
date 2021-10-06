@@ -64,7 +64,7 @@
                     <TextBox Name="ManaCount" Text="1000" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="3" Margin="240,145,0,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="AutoSpeed" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" IsSelected="True" Margin="0" Style="{DynamicResource SimpleTabItem}" >
+            <TabItem Header="Tools" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" IsSelected="True" Margin="0" Style="{DynamicResource SimpleTabItem}" >
                 <Grid Background="#FF1C1C1C" Margin="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="18*"/>
@@ -73,7 +73,7 @@
                         <ColumnDefinition Width="225*"/>
                         <ColumnDefinition Width="194*"/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox Name="AutoSpeedEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26.08,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="13.96" Width="62.27" Grid.Column="1" Checked="AutoSpeedChecked" Unchecked="AutoSpeedChecked" />
+                    <CheckBox Name="AutoSpeedEnabled" Content="AutoSpeed Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="137" Grid.Column="1" Checked="AutoSpeedChecked" Unchecked="AutoSpeedChecked" />
                     <TextBox Name="MinMana" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="245,78,0,0" Text="500"/>
                     <TextBox Name="MinHealth" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="157,78,0,0" Text="400"/>
                     <ComboBox Name="AutoSpeedSpell" Grid.Column="1" HorizontalAlignment="Left" Margin="18,78.08,0,0" VerticalAlignment="Top" Width="90" Height="20.96">
@@ -86,6 +86,7 @@
                     <TextBox Name="MinSpeed" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="336,78,0,0" Text="500"/>
                     <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="336,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="Min"/><Run Text="Speed"/></TextBlock>
                     <CheckBox x:Name="AutoFisherEnabled" Content="AutoFisher Enabled" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="133" Grid.Column="1" Checked="AutoFisherChecked" Unchecked="AutoFisherChecked" />
+                    <CheckBox x:Name="TrainPointsEnabled" Content="TrainPoints Enabled" HorizontalAlignment="Left" Margin="22,165,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="133" Grid.Column="1" Checked="TrainPointsChecked" Unchecked="TrainPointsChecked" />
                 </Grid>
             </TabItem>
             <TabItem Header="Alarms" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
@@ -112,6 +113,7 @@
                         <SolidColorBrush Color="#FF1C1C1C"/>
                     </Grid.Background>
                     <CheckBox Name="RuneMakerEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="RuneMakerChecked" Unchecked="RuneMakerChecked" />
+                    <CheckBox Name="FoodEaterEnabled" Content="FoodEater Enabled" HorizontalAlignment="Left" Margin="18,113,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="FoodEaterChecked" Unchecked="FoodEaterChecked" />
                     <TextBox Name="Spell" HorizontalAlignment="Left" Height="23" Margin="145,70,0,0" TextWrapping="Wrap" Text="adura gran" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
                     <TextBox Name="ManaLow" HorizontalAlignment="Left" Height="23" Margin="306,70,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13" Grid.Column="1"/>
                     <TextBox Name="ManaHigh" HorizontalAlignment="Left" Height="23" Margin="394,70,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13" Grid.Column="1"/>
