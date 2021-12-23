@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Speech.Synthesis;
-
+using System.Text.Json;
+using System.IO;
 
 namespace SolBot
 {
@@ -435,6 +436,15 @@ namespace SolBot
                 }
 
             }
+        }
+
+        private void SaveSettings(object sender, RoutedEventArgs e)
+        {
+            string fileName = "settings.json";
+            string jsonString = JsonSerializer.Serialize(Client.Modules.RuneMaker);
+            console.Blocks.Add(new Paragraph(new Run(jsonString)));
+            File.WriteAllText(fileName, jsonString);
+            console.Blocks.Add(new Paragraph(new Run("Saved settings")));
         }
     }
 

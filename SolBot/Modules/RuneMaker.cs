@@ -88,7 +88,11 @@ namespace SolBot.Modules
                             WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F2, 0);
                             WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
                         }
-
+                        else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Realesta"))
+                        {
+                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F1, 0);
+                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F1, 0);
+                        }
                         else
                         {
                             //this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);

@@ -103,19 +103,24 @@ namespace SolBot.Modules
                 {
                     
                     
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1569, 129));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1569, 129));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1569, 129));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1765, 340));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1765, 340));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1765, 340));
                     //Thread.Sleep(500);
-                  //  PostMessage((IntPtr)0x0070C2A, 0x0084, (IntPtr)0x0, CreateLParam(1569, 560));
-                   // PostMessage((IntPtr)0x0070C2A, 0x0020, (IntPtr)0x0, CreateLParam(1569, 560));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1362, 560));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x201, (IntPtr)0x1, CreateLParam(1362, 560));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x202, (IntPtr)0x0, CreateLParam(1362, 560));
+                    //  PostMessage((IntPtr)0x0070C2A, 0x0084, (IntPtr)0x0, CreateLParam(1569, 560));
+                    // PostMessage((IntPtr)0x0070C2A, 0x0020, (IntPtr)0x0, CreateLParam(1569, 560));
 
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1636, 164));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1636, 164));
-                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1636, 164));
+                    Random r = new Random();
+                    int x = r.Next(860, 1391);
+                    int y = r.Next(540, 836);
+
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x, y));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x201, (IntPtr)0x1, CreateLParam(x, y));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x202, (IntPtr)0x0, CreateLParam(x, y));
+
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1636, 164));
+                   // PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1636, 164));
+                   // PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1636, 164));
 
                     // PostMessage((IntPtr)0x0070C2A, 0x0084, (IntPtr)0x0, CreateLParam(1362, 560));
                     //  PostMessage((IntPtr)0x0070C2A, 0x0020, (IntPtr)0x0, CreateLParam(1362, 560));

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolBot"
         mc:Ignorable="d"
-        Title="ChooserWindow" Height="333.186" Width="332.743">
-    <Grid Background="#FF1A1A1D">
+        Title="ChooserWindow" Height="331" Width="332.743">
+    <Grid Background="#FF1A1A1D" Margin="0,0,0,-16">
         <ListView Name="ClientsList" Height="200" Margin="25,25,25,0" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
@@ -16,7 +16,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Open bot" Margin="120,246.906,120,35.32" Click="OpenWindow"/>
+        <Button Content="Open bot" Margin="120,0,120,35" Click="OpenWindow" Height="33" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

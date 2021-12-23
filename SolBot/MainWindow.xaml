@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolBot"
+        xmlns:views="clr-namespace:SolBot.Views"
+        xmlns:viewmodels="clr-namespace:SolBot.ViewModels"
         mc:Ignorable="d"
         Title="SolBot" Height="500" Width="900" WindowStartupLocation="Manual" Background="#FF1A1A1D" BorderBrush="Black" ShowInTaskbar="True" Padding="0" Margin="0" OpacityMask="#FF212020">
 
     <DockPanel Background="#FF1A1A1D" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True" Margin="0">
         <Menu Background="#FF1A1A1D" BorderBrush="#FF212121" ClipToBounds="True" RenderTransformOrigin="0,0" Margin="0" DockPanel.Dock="Top" VerticalAlignment="Top">
             <MenuItem Header="Settings" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White">
-                <MenuItem Header="MenuItem" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Margin="0" Foreground="White" Background="#FF060000" HorizontalAlignment="Left" Width="157.607"/>
+                <MenuItem Header="Save settings" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Margin="0" Foreground="White" Background="#FF060000" HorizontalAlignment="Left" Width="157.607" Click="SaveSettings"/>
+                <MenuItem Header="Load settings" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Margin="0" Foreground="White" Background="#FF060000" HorizontalAlignment="Left" Width="157.607" />
             </MenuItem>
             <MenuItem Header="Opcje" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White" StaysOpenOnClick="True">
                 <MenuItem Header="LightHack" HorizontalAlignment="Left" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Width="88.436" Margin="0,0,-0.829,0" Foreground="White" Background="#FF060000" IsCheckable="True" Checked="EnableLightHack"/>
@@ -124,6 +127,14 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Test" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
+                <Grid Height="430" Width="894">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF1C1C1C"/>
+                    </Grid.Background>
+                    <views:TestView/>
                 </Grid>
             </TabItem>
             <TabItem Header="Targeting" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">

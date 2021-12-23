@@ -30,11 +30,13 @@ namespace SolBot
             Process[] l = Process.GetProcessesByName("otclient_gl");
             Process[] d = Process.GetProcessesByName("Giveria");
             Process[] t = Process.GetProcessesByName("DBKOx32");
+            Process[] realesta = Process.GetProcessesByName("RealeraGL-1638010042-1638549435-1638890944-1639050156-1639498616");
             processList.Add(x);
             processList.Add(p);
             processList.Add(l);
             processList.Add(d);
             processList.Add(t);
+            processList.Add(realesta);
             //this.clients = t;
             List<TibiaClient> items = new List<TibiaClient>();
 
