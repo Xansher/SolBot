@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="Modules\Alarms.cs" />
+    <Compile Include="Modules\AntyAFK.cs" />
     <Compile Include="Modules\AutoFisher.cs" />
     <Compile Include="Modules\AutoSpeed.cs" />
     <Compile Include="Modules\FoodEater.cs" />

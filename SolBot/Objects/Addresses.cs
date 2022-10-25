@@ -105,19 +105,38 @@ namespace SolBot.Objects
                 this.Player.Light = 0x48D518 + baseAddress + 0xA4;
                 return true;
             }
-            else if (c.TibiaProcess.MainWindowTitle.Contains("Realesta"))
+            else if (c.TibiaProcess.MainWindowTitle.Contains("Realesta") || c.TibiaProcess.MainWindowTitle.Contains("Realera"))
             {
-                int add = baseAddress + 0x00940260;
+                int add = baseAddress + 0x00958C90;
                 this.Player.BaseAddress = add;
                 this.Player.XPosOffset = 0xC;
                 this.Player.YPosOffset = 0x10;
                 this.Player.ZPosOffset = 0x14;
                 this.Player.NameOffset = 0x20;
-                this.Player.Mana = baseAddress + 0x00940260;
-                this.Player.ManaOff = 0x460;
-                this.Player.Health = baseAddress + 0x00940260;
-                this.Player.HealthOff = 0x428;
-                this.Player.SoulOff = 0x4C8;
+                this.Player.Mana = baseAddress + 0x00958C90;
+                this.Player.ManaOff = 0x4C8;
+                this.Player.Health = baseAddress + 0x00958C90;
+                this.Player.HealthOff = 0x490;
+                this.Player.SoulOff = 0x4E0;
+                this.Player.SpeedOff = 0xA8;
+                this.Player.LightObject = 0x278C73 + baseAddress;
+                this.Player.LightFloor = 0x2826C9 + baseAddress;
+                this.Player.Light = 0x48D518 + baseAddress + 0xA4;
+                return true;
+            }
+            else if (c.TibiaProcess.MainWindowTitle.Contains("Dragon Ball Legend"))
+            {
+                int add = baseAddress + 0x0060B2C0;
+                this.Player.BaseAddress = add;
+                this.Player.XPosOffset = 0xC;
+                this.Player.YPosOffset = 0x10;
+                this.Player.ZPosOffset = 0x14;
+                this.Player.NameOffset = 0x20;
+                this.Player.Mana = add;
+                this.Player.ManaOff = 0x430;
+                this.Player.Health = add;
+                this.Player.HealthOff = 0x3F8;
+                this.Player.SoulOff = 0x4E0;
                 this.Player.SpeedOff = 0xA8;
                 this.Player.LightObject = 0x278C73 + baseAddress;
                 this.Player.LightFloor = 0x2826C9 + baseAddress;

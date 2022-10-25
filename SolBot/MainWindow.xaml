@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:SolBot.Views"
         xmlns:viewmodels="clr-namespace:SolBot.ViewModels"
         mc:Ignorable="d"
-        Title="SolBot" Height="500" Width="900" WindowStartupLocation="Manual" Background="#FF1A1A1D" BorderBrush="Black" ShowInTaskbar="True" Padding="0" Margin="0" OpacityMask="#FF212020">
+        Title="SolBot" Height="275" Width="511" WindowStartupLocation="Manual" Background="#FF1A1A1D" BorderBrush="Black" ShowInTaskbar="True" Padding="0" Margin="0" OpacityMask="#FF212020">
 
     <DockPanel Background="#FF1A1A1D" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True" Margin="0">
         <Menu Background="#FF1A1A1D" BorderBrush="#FF212121" ClipToBounds="True" RenderTransformOrigin="0,0" Margin="0" DockPanel.Dock="Top" VerticalAlignment="Top">
@@ -39,16 +39,16 @@
             <TabItem Header="Heal" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" IsSelected="True" Margin="0" Style="{DynamicResource SimpleTabItem}" >
                 <Grid Background="#FF1C1C1C" Margin="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="17*"/>
-                        <ColumnDefinition Width="74*"/>
-                        <ColumnDefinition Width="328*"/>
-                        <ColumnDefinition Width="47*"/>
-                        <ColumnDefinition Width="225*"/>
-                        <ColumnDefinition Width="194*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="14*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="305*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="183*"/>
+                        <ColumnDefinition Width="158*"/>
                     </Grid.ColumnDefinitions>
                     <CheckBox Name="HealEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="2" Checked="HealChecked" Unchecked="HealChecked" Grid.ColumnSpan="2" />
-                    <TextBox Name="HealthCount" Text="300"  HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="3" Margin="243,78,0,0" />
+                    <TextBox Name="HealthCount" Text="300"  HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="3" Margin="243,78,0,0" Grid.ColumnSpan="3" />
                     <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="18,78,0,0" VerticalAlignment="Top" Width="90" Height="21" Grid.ColumnSpan="2">
                         <ComboBoxItem Content="light healing" HorizontalAlignment="Left" Width="92.17"/>
                         <ComboBoxItem Content="regeneration" HorizontalAlignment="Left" Width="92.17"/>
@@ -56,15 +56,15 @@
                         <ComboBoxItem Content="IH Rune" HorizontalAlignment="Left" Width="92.17"/>
                         <ComboBoxItem Content="UH Rune" HorizontalAlignment="Left" Width="92.17"/>
                     </ComboBox>
-                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="18,57,0,0" TextWrapping="Wrap" Text="Spell/item" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="18,57,0,0" TextWrapping="Wrap" Text="Spell/item" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2" Height="16"/>
                     <ComboBox Grid.Column="3" HorizontalAlignment="Left" Margin="80,78,0,0" VerticalAlignment="Top" Width="120" Height="21">
                         <ComboBoxItem Content="HP lower than" HorizontalAlignment="Left" Width="118"/>
                         <ComboBoxItem Content="%HP lower than" HorizontalAlignment="Left" Width="118"/>
                     </ComboBox>
-                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="80,57,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" Width="66"/>
-                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="243,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="Hp"/><LineBreak/><Run/></TextBlock>
-                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="240,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="Mana"/><LineBreak/><Run/></TextBlock>
-                    <TextBox Name="ManaCount" Text="1000" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="3" Margin="240,145,0,0"/>
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="80,57,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" Width="66" Height="16"/>
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="243,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="3" Height="32"><Run Text="Hp"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="240,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="3" Height="32"><Run Text="Mana"/><LineBreak/><Run/></TextBlock>
+                    <TextBox Name="ManaCount" Text="1000" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Grid.Column="5" Margin="27,145,0,0"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Tools" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" IsSelected="True" Margin="0" Style="{DynamicResource SimpleTabItem}" >
@@ -79,7 +79,7 @@
                     <CheckBox Name="AutoSpeedEnabled" Content="AutoSpeed Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="137" Grid.Column="1" Checked="AutoSpeedChecked" Unchecked="AutoSpeedChecked" />
                     <TextBox Name="MinMana" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="245,78,0,0" Text="500"/>
                     <TextBox Name="MinHealth" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="157,78,0,0" Text="400"/>
-                    <ComboBox Name="AutoSpeedSpell" Grid.Column="1" HorizontalAlignment="Left" Margin="18,78.08,0,0" VerticalAlignment="Top" Width="90" Height="20.96">
+                    <ComboBox Name="AutoSpeedSpell" Grid.Column="1" HorizontalAlignment="Left" Margin="18,78,0,0" VerticalAlignment="Top" Width="122" Height="21">
                         <ComboBoxItem Content="utani gran hur" HorizontalAlignment="Left" Width="92.17" IsSelected="True"/>
                         <ComboBoxItem Content="utani hur" HorizontalAlignment="Left" Width="92.17"/>
                     </ComboBox>
@@ -88,7 +88,7 @@
                     <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="245,57,0,0" TextWrapping="Wrap" Text="MinMana" VerticalAlignment="Top" Width="66"/>
                     <TextBox Name="MinSpeed" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="1" Margin="336,78,0,0" Text="500"/>
                     <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="336,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"><Run Text="Min"/><Run Text="Speed"/></TextBlock>
-                    <CheckBox x:Name="AutoFisherEnabled" Content="AutoFisher Enabled" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="133" Grid.Column="1" Checked="AutoFisherChecked" Unchecked="AutoFisherChecked" />
+                    <CheckBox x:Name="AutoFisherRuneEnabled" Content="AutoFisher Enabled" HorizontalAlignment="Left" Margin="22,137,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="133" Grid.Column="1" Checked="AutoFisherChecked" Unchecked="AutoFisherChecked" />
                     <CheckBox x:Name="TrainPointsEnabled" Content="TrainPoints Enabled" HorizontalAlignment="Left" Margin="22,165,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="133" Grid.Column="1" Checked="TrainPointsChecked" Unchecked="TrainPointsChecked" />
                 </Grid>
             </TabItem>
@@ -106,21 +106,22 @@
                 </Grid>
             </TabItem>
             <TabItem Header="RuneMaker" Style="{DynamicResource SimpleTabItem}" Background="{x:Null}" Foreground="#FFFFFBFB" BorderBrush="{x:Null}"  HorizontalAlignment="Right">
-                <Grid>
+                <Grid RenderTransformOrigin="0.549,0.493">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80*"/>
-                        <ColumnDefinition Width="469*"/>
-                        <ColumnDefinition Width="337*"/>
+
                     </Grid.ColumnDefinitions>
                     <Grid.Background>
                         <SolidColorBrush Color="#FF1C1C1C"/>
                     </Grid.Background>
                     <CheckBox Name="RuneMakerEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="RuneMakerChecked" Unchecked="RuneMakerChecked" />
-                    <CheckBox Name="FoodEaterEnabled" Content="FoodEater Enabled" HorizontalAlignment="Left" Margin="18,113,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="0" Checked="FoodEaterChecked" Unchecked="FoodEaterChecked" />
-                    <TextBox Name="Spell" HorizontalAlignment="Left" Height="23" Margin="145,70,0,0" TextWrapping="Wrap" Text="adura gran" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                    <TextBox Name="ManaLow" HorizontalAlignment="Left" Height="23" Margin="306,70,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13" Grid.Column="1"/>
-                    <TextBox Name="ManaHigh" HorizontalAlignment="Left" Height="23" Margin="394,70,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13" Grid.Column="1"/>
-                    <ComboBox x:Name="SpellComboBox" HorizontalAlignment="Left" Margin="71,71,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding RuneList}" SelectionChanged="RuneChanged">
+                    <CheckBox Name="FoodEaterEnabled" Content="FoodEater Enabled" HorizontalAlignment="Left" Margin="18,113,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="113" Grid.Column="0" Checked="FoodEaterChecked" Unchecked="FoodEaterChecked" Grid.ColumnSpan="2" />
+                    <CheckBox Name="AutoFisherEnabled" Content="AutoFisher Enabled" HorizontalAlignment="Left" Margin="18,137,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="173" Grid.Column="0" Checked="AutoFisherChecked" Unchecked="AutoFisherChecked" Grid.ColumnSpan="2" />
+                    <CheckBox Name="AntyAFKEnabled" Content="AntyAFK Enabled" HorizontalAlignment="Left" Margin="18,158,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="173" Grid.Column="0" Checked="AntyAFKChecked" Unchecked="AntyAFKChecked" Grid.ColumnSpan="2" />
+                   
+                    <TextBox Name="Spell" HorizontalAlignment="Left" Height="23" Margin="162,54,0,0" TextWrapping="Wrap" Text="adura gran" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="ManaLow" HorizontalAlignment="Left" Height="23" Margin="308,54,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>
+                    <TextBox Name="ManaHigh" HorizontalAlignment="Left" Height="23" Margin="395,54,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>
+                    <ComboBox x:Name="SpellComboBox" HorizontalAlignment="Left" Margin="18,54,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" ItemsSource="{Binding RuneList}" SelectionChanged="RuneChanged" Height="22">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding ShortName}" />

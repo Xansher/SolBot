@@ -88,16 +88,25 @@ namespace SolBot.Modules
                             WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F2, 0);
                             WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
                         }
-                        else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Realesta"))
+                        else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Realesta") || this.Client.TibiaProcess.MainWindowTitle.Contains("Realera"))
                         {
-                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F1, 0);
-                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F1, 0);
+                            if (soul > 5)
+                            {
+                                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F1, 0);
+                                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F1, 0);
+                            }
+                            else
+                            {
+                                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F2, 0);
+                                WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F2, 0);
+                            }
+                            
                         }
                         else
                         {
                             //this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
-                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F3, 0);
-                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F3, 0);
+                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F1, 0);
+                            WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F1, 0);
                             Thread.Sleep(400);
                             /*    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(855, 333));
                                 PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(855, 333));

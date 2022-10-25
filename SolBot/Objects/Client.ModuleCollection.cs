@@ -21,6 +21,7 @@ namespace SolBot.Objects
                 this.Targeting = new Modules.Targeting(c);
                 this.FoodEater = new Modules.FoodEater(c);
                 this.TrainPoints = new Modules.TrainPoints(c);
+                this.AntyAFK = new Modules.AntyAFK(c);
             }
 
             public Objects.Client Client { get; private set; }
@@ -32,6 +33,7 @@ namespace SolBot.Objects
             public Modules.Targeting Targeting { get; private set; }
             public Modules.FoodEater FoodEater { get; private set; }
             public Modules.TrainPoints TrainPoints { get; private set; }
+            public Modules.AntyAFK AntyAFK { get; private set; }
 
         }
 

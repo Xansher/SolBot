@@ -86,6 +86,26 @@ namespace SolBot
                 
             }
         }
+        private void AntyAFKChecked(object sender, RoutedEventArgs e)
+        {
+            if (AntyAFKEnabled.IsChecked.Value != this.Client.Modules.AntyAFK.IsRunning)
+            {
+
+                if (AntyAFKEnabled.IsChecked.Value)
+                {
+                    this.Client.Addresses.SetAddresses(this.Client);
+                    console.Blocks.Add(new Paragraph(new Run("AntyAFK Enabled")));
+                    this.Client.Modules.AntyAFK.Start();
+                }
+                else
+                {
+                    console.Blocks.Add(new Paragraph(new Run("AntyAFK Disabled")));
+                    this.Client.Modules.AntyAFK.Stop();
+                }
+
+            }
+        }
+
         private void AlarmsChecked(object sender, RoutedEventArgs e)
         {
             if (AlarmsEnabled.IsChecked.Value != this.Client.Modules.Alarms.IsRunning)

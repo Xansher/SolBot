@@ -125,7 +125,7 @@ namespace SolBot.Modules
                     }
                 }
                 
-                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO") || this.Client.TibiaProcess.MainWindowTitle.Contains("Dragon Ball Legend"))
                 {
                     if (health < Health)
                     {
@@ -176,7 +176,7 @@ namespace SolBot.Modules
                     }
 
                 }
-                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO") || this.Client.TibiaProcess.MainWindowTitle.Contains("Dragon Ball Legend"))
                 {
                     if (mana < Mana)
                     {
@@ -206,13 +206,13 @@ namespace SolBot.Modules
                    // }
 
                 }
-                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Imperianic"))
+                if (this.Client.TibiaProcess.MainWindowTitle.Contains("Realesta"))
                 {
                     if (mana < Mana)
                     {
-                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1550, 250));
-                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1550, 250));
-                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1550, 250));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(1580, 70));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x2, CreateLParam(1580, 70));
+                        PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(1580, 70));
 
                         PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(860, 450));
                         PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x201, (IntPtr)0x1, CreateLParam(860, 450));

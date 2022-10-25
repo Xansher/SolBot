@@ -142,6 +142,9 @@ namespace SolBot
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool PostMessage(IntPtr hWnd, uint msg, uint wParam, int lParam);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool PostMessage(IntPtr hWnd, uint msg, uint wParam, uint lParam);
+
         public const uint PROCESS_ALL_ACCESS = 0x1F0FFF;
         public const uint PROCESS_VM_READ = 0x0010;
         public const uint PROCESS_VM_WRITE = 0x0020;

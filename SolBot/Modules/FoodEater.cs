@@ -33,10 +33,12 @@ namespace SolBot.Modules
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(855, 333));
 
                 }
-                else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Realesta"))
+                else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Realesta") || this.Client.TibiaProcess.MainWindowTitle.Contains("Realera"))
                 {
-                    int x = 1840;
-                    int y = 340;
+                    int x = 1835;
+                    int y = 370;
+                    int x2 = 933;
+                    int y2 = 490;
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x, y));
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(x, y));
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(x, y));
@@ -48,6 +50,18 @@ namespace SolBot.Modules
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x, y));
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(x, y));
                     PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(x, y));
+                    Thread.Sleep(100);
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x2, y2));
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(x2, y2));
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(x2, y2));
+                    //Thread.Sleep(100);
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x2, y2));
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(x2, y2));
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(x2, y2));
+                    //Thread.Sleep(100);
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x2, y2));
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x204, (IntPtr)0x1, CreateLParam(x2, y2));
+                    //PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x205, (IntPtr)0x0, CreateLParam(x2, y2));
 
                 }
                 else if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO"))
@@ -59,7 +73,7 @@ namespace SolBot.Modules
                 }
 
 
-                Thread.Sleep(20000);
+                Thread.Sleep(10000);
             }
             
         }
