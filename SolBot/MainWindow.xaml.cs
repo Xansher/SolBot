@@ -17,18 +17,80 @@ using System.Speech.Synthesis;
 using System.Text.Json;
 using System.IO;
 
+using System.Windows.Interop;
+
+
+
 namespace SolBot
 {
+
+
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        static readonly int MyHotKeyId = 0x3000;
+        static readonly int WM_HOTKEY = 0x312;
+
+        void InitializeHook()
+        {
+            var windowHelper = new WindowInteropHelper(this);
+            var windowSource = HwndSource.FromHwnd(windowHelper.Handle);
+
+            windowSource.AddHook(MessagePumpHook);
+        }
+
+        IntPtr MessagePumpHook(IntPtr handle, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+
+            if (msg == WM_HOTKEY)
+            {
+                if ((int)wParam == MyHotKeyId)
+                {
+                    // The hotkey has been pressed, do something!
+                    this.Client.CtrlPressed = true;
+                    handled = true;
+                }
+            
+            }
+            if(msg == 0x0101)
+            {
+                if((int)wParam == MyHotKeyId)
+                {
+                    this.Client.CtrlPressed = false;
+                }
+            }
+
+            return IntPtr.Zero;
+        }
+
+        void InitializeHotKey()
+        {
+            var windowHelper = new WindowInteropHelper(this);
+
+            // You can specify modifiers such as SHIFT, ALT, CONTROL, and WIN.
+            // Remember to use the bit-wise OR operator (|) to join multiple modifiers together.
+            uint modifiers = (uint)ModifierKeys.Control;
+
+            // We need to convert the WPF Key enumeration into a virtual key for the Win32 API!
+            uint virtualKey = (uint)KeyInterop.VirtualKeyFromKey(Key.RightCtrl);
+
+            WinAPI.RegisterHotKey(windowHelper.Handle, MyHotKeyId, modifiers, virtualKey);
+        }
+
+        void UninitializeHotKey()
+        {
+            var windowHelper = new WindowInteropHelper(this);
+            WinAPI.UnregisterHotKey(windowHelper.Handle, MyHotKeyId);
+        }
+
         Objects.Client Client = null;
 
         public MainWindow(Process realesta)
         {
             this.Client = new Objects.Client(realesta, true);
+            
             /*int pid = 0;
 
             if (pid != 0)
@@ -59,11 +121,17 @@ namespace SolBot
             List.Add(new Objects.Rune("GFB", "GFB", "adori gran flam"));
             List.Add(new Objects.Rune("UH", "UH", "adura vita"));
             SpellComboBox.ItemsSource = List;*/
-            
+
             InitializeComponent();
             DataContext = new ViewModels.MainViewModel();
 
 
+        }
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            //base.OnSourceInitialized(e);
+            //InitializeHook();
+            //InitializeHotKey();
         }
         private void HealChecked(object sender, RoutedEventArgs e)
         {
@@ -75,6 +143,7 @@ namespace SolBot
                     this.Client.Addresses.SetAddresses(this.Client);
                     console.Blocks.Add(new Paragraph(new Run("Healer Enabled")));
                     this.Client.Modules.Healer.Health = Convert.ToInt32(HealthCount.Text); ;
+                    this.Client.Modules.Healer.HealthItem = Convert.ToInt32(HealthItemCount.Text); ;
                     this.Client.Modules.Healer.Mana = Convert.ToInt32(ManaCount.Text); ;
                     this.Client.Modules.Healer.Start();
                 }

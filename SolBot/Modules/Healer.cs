@@ -52,6 +52,7 @@ namespace SolBot.Modules
 
         public int Mana { get; set; }
         public int Health { get; set; }
+        public int HealthItem { get; set; }
 
         /// <summary>
         /// Gets or sets the list of criterias.
@@ -129,9 +130,12 @@ namespace SolBot.Modules
                 {
                     if (health < Health)
                     {
+                        Random rnd = new Random();
+                        int randomWait = rnd.Next(150, 236);
+                        Thread.Sleep(randomWait);
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F12, 0);
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F12, 0);
-                        Thread.Sleep(250);
+                        
                     }
 
                 }
@@ -178,11 +182,14 @@ namespace SolBot.Modules
                 }
                 if (this.Client.TibiaProcess.MainWindowTitle.Contains("DBKO") || this.Client.TibiaProcess.MainWindowTitle.Contains("Dragon Ball Legend"))
                 {
-                    if (mana < Mana)
+                    if (mana < Mana || health < HealthItem)
                     {
+                        Random rnd = new Random();
+                        int randomWait = rnd.Next(97, 256);
+                        Thread.Sleep(randomWait);
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F11, 0);
                         WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F11, 0);
-                        Thread.Sleep(300);
+                        
                     }
 
                 }

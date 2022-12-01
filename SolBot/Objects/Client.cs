@@ -14,6 +14,7 @@ namespace SolBot.Objects
 
         public Client(Process p, bool useThisClient = false)
         {
+            this.CtrlPressed = false;
             this.TibiaProcess = p;
             this.TibiaHandle = p.Handle;
             if (useThisClient) this.LoadProperties();
@@ -21,6 +22,7 @@ namespace SolBot.Objects
         }
         #region properties 
         public Process TibiaProcess { get; private set; }
+        public Boolean CtrlPressed { get;  set; }
         public IntPtr TibiaHandle { get; private set; }
         public Objects.Addresses Addresses { get; set; }
         public Objects.Memory Memory { get; private set; }

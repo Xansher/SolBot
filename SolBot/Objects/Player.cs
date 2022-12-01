@@ -56,6 +56,11 @@ namespace SolBot.Objects
             get { return this.Client.Memory.ReadUInt16(this.Client.Memory.ReadInt32(this.Client.Addresses.Player.BaseAddress) + this.Client.Addresses.Player.ZPosOffset); }
             set { }
         }
+        public double Target
+        {
+            get { return this.Client.Memory.ReadInt32(this.Client.Memory.ReadInt32(this.Client.Addresses.Player.Target) + this.Client.Addresses.Player.TargetOff); }
+            set { }
+        }
 
         public void EnableLightHack()
         {

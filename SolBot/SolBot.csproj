@@ -129,6 +129,7 @@
     <Compile Include="Modules\FoodEater.cs" />
     <Compile Include="Modules\Healer.cs" />
     <Compile Include="Modules\RuneMaker.cs" />
+    <Compile Include="Modules\SpellCaster.cs" />
     <Compile Include="Modules\Targeting.cs" />
     <Compile Include="Modules\TrainPoints.cs" />
     <Compile Include="Objects\Addresses.cs" />

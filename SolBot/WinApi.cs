@@ -145,6 +145,12 @@ namespace SolBot
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool PostMessage(IntPtr hWnd, uint msg, uint wParam, uint lParam);
 
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr windowHandle, int hotkeyId, uint modifierKeys, uint virtualKey);
+
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr windowHandle, int hotkeyId);
+
         public const uint PROCESS_ALL_ACCESS = 0x1F0FFF;
         public const uint PROCESS_VM_READ = 0x0010;
         public const uint PROCESS_VM_WRITE = 0x0020;
@@ -192,6 +198,7 @@ namespace SolBot
         public const int WM_KEYDOWN = 0x0100;
         public const int WM_KEYUP = 0x0101;
         public const int WM_CHAR = 0x0102;
+        public const int SPACE = 0x20;
 
         public const uint WM_LBUTTONDOWN = 0x201;
         public const uint WM_LBUTTONUP = 0x202;

@@ -99,6 +99,21 @@ namespace SolBot.Modules
                     Thread.Sleep(1000);
                     this.food++;
                 }
+                else if (this.Client.TibiaProcess.MainWindowTitle.Contains("Dragon Ball Legend"))
+                {
+
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, (IntPtr)VK_F4, (IntPtr)0);
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, (IntPtr)VK_F4, (IntPtr)0);
+                    Random r = new Random();
+                    int x = r.Next(824, 1065);
+                    int y = r.Next(555, 681);
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x0200, (IntPtr)0x0, CreateLParam(x, y));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x201, (IntPtr)0x1, CreateLParam(x, y));
+                    PostMessage(this.Client.TibiaProcess.MainWindowHandle, 0x202, (IntPtr)0x0, CreateLParam(x, y));
+
+                    Thread.Sleep(200+ r.Next(100,200));
+                    
+                }
                 else
                 {
                     

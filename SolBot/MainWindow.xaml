@@ -40,15 +40,25 @@
                 <Grid Background="#FF1C1C1C" Margin="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="14*"/>
-                        <ColumnDefinition Width="60*"/>
-                        <ColumnDefinition Width="305*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="42*"/>
+                        <ColumnDefinition Width="214*"/>
                         <ColumnDefinition Width="0*"/>
-                        <ColumnDefinition Width="183*"/>
-                        <ColumnDefinition Width="158*"/>
+                        <ColumnDefinition Width="141*"/>
+                        <ColumnDefinition Width="98*"/>
                     </Grid.ColumnDefinitions>
                     <CheckBox Name="HealEnabled" Content="Enabled" HorizontalAlignment="Left" Margin="18,26,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="62" Grid.Column="2" Checked="HealChecked" Unchecked="HealChecked" Grid.ColumnSpan="2" />
-                    <TextBox Name="HealthCount" Text="300"  HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" Grid.Column="3" Margin="243,78,0,0" Grid.ColumnSpan="3" />
+                    <TextBox Name="HealthCount" Text="17000"  HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Grid.Column="5" Margin="15,78,0,0" />
+                    <TextBox Name="HealthItemCount" Text="20000"  HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" Grid.Column="5" Margin="90,78,0,0" RenderTransformOrigin="0.5,0.5" >
+                        <TextBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0"/>
+                            </TransformGroup>
+                        </TextBox.RenderTransform>
+                    </TextBox>
                     <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="18,78,0,0" VerticalAlignment="Top" Width="90" Height="21" Grid.ColumnSpan="2">
                         <ComboBoxItem Content="light healing" HorizontalAlignment="Left" Width="92.17"/>
                         <ComboBoxItem Content="regeneration" HorizontalAlignment="Left" Width="92.17"/>
@@ -62,9 +72,10 @@
                         <ComboBoxItem Content="%HP lower than" HorizontalAlignment="Left" Width="118"/>
                     </ComboBox>
                     <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="80,57,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" Width="66" Height="16"/>
-                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="243,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="3" Height="32"><Run Text="Hp"/><LineBreak/><Run/></TextBlock>
-                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="240,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="3" Height="32"><Run Text="Mana"/><LineBreak/><Run/></TextBlock>
-                    <TextBox Name="ManaCount" Text="1000" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Grid.Column="5" Margin="27,145,0,0"/>
+                    <TextBlock Grid.Column="5" HorizontalAlignment="Left" Margin="30,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Height="32"><Run Text="Hp"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock Grid.Column="5" HorizontalAlignment="Left" Margin="27,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Height="32"><Run Text="Mana"/><LineBreak/><Run/></TextBlock>
+                    <TextBox Name="ManaCount" Text="11000" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Grid.Column="5" Margin="27,145,0,0"/>
+                    <TextBlock Grid.Column="5" HorizontalAlignment="Left" Margin="90,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Height="32" Grid.ColumnSpan="2"><Run Text="Item Hp"/><LineBreak/><Run/></TextBlock>
                 </Grid>
             </TabItem>
             <TabItem Header="Tools" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" IsSelected="True" Margin="0" Style="{DynamicResource SimpleTabItem}" >
@@ -117,7 +128,7 @@
                     <CheckBox Name="FoodEaterEnabled" Content="FoodEater Enabled" HorizontalAlignment="Left" Margin="18,113,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="113" Grid.Column="0" Checked="FoodEaterChecked" Unchecked="FoodEaterChecked" Grid.ColumnSpan="2" />
                     <CheckBox Name="AutoFisherEnabled" Content="AutoFisher Enabled" HorizontalAlignment="Left" Margin="18,137,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="173" Grid.Column="0" Checked="AutoFisherChecked" Unchecked="AutoFisherChecked" Grid.ColumnSpan="2" />
                     <CheckBox Name="AntyAFKEnabled" Content="AntyAFK Enabled" HorizontalAlignment="Left" Margin="18,158,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleCheckBox}" RenderTransformOrigin="0.47,0.188" Height="14" Width="173" Grid.Column="0" Checked="AntyAFKChecked" Unchecked="AntyAFKChecked" Grid.ColumnSpan="2" />
-                   
+
                     <TextBox Name="Spell" HorizontalAlignment="Left" Height="23" Margin="162,54,0,0" TextWrapping="Wrap" Text="adura gran" VerticalAlignment="Top" Width="120"/>
                     <TextBox Name="ManaLow" HorizontalAlignment="Left" Height="23" Margin="308,54,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>
                     <TextBox Name="ManaHigh" HorizontalAlignment="Left" Height="23" Margin="395,54,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.325,-0.13"/>

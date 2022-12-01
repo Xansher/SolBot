@@ -31,7 +31,7 @@ namespace SolBot
             Process[] d = Process.GetProcessesByName("Giveria");
             Process[] t = Process.GetProcessesByName("DBKOx32");
             Process[] dbl = Process.GetProcessesByName("DBLClient");
-            Process[] realesta = Process.GetProcessesByName("RealeraGL-1654182380-1658507991-1663507042");
+            Process[] realesta = Process.GetProcessesByName("RealeraGL-1654182380-1658507991-1663507042-1669398384");
             processList.Add(x);
             processList.Add(p);
             processList.Add(l);

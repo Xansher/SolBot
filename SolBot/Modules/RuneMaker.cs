@@ -104,7 +104,9 @@ namespace SolBot.Modules
                         }
                         else
                         {
+                            Random random = new Random();
                             //this.Client.Functions.SendTalk(spell, new Objects.Client.StdString(""), 1, 0);
+                            Thread.Sleep(100 + random.Next(0,100));
                             WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x100, WinAPI.VK_F1, 0);
                             WinAPI.SendMessage(this.Client.TibiaProcess.MainWindowHandle, 0x101, WinAPI.VK_F1, 0);
                             Thread.Sleep(400);
